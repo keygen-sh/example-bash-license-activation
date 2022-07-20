@@ -3,8 +3,7 @@
 This is an example of activating a license key using Bash. You can
 utilize this script to, for example, activate a container during a
 startup routine (e.g. from `wait-for-it.sh`). This example app
-requires [`jq`](https://stedolan.github.io/jq/) for parsing JSON
-responses.
+requires [`jq`](https://stedolan.github.io/jq/).
 
 **If you're running this example in a container or other virtualized
 environment**: We recommend using a random value, such as a secure
