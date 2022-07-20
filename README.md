@@ -2,7 +2,17 @@
 
 This is an example of activating a license key using Bash. You can
 utilize this script to, for example, activate a container during a
-startup routine. Requires [`jq`](https://stedolan.github.io/jq/).
+startup routine (e.g. from `wait-for-it.sh`). This example app
+requires [`jq`](https://stedolan.github.io/jq/) for parsing JSON
+responses.
+
+**If you're running this example in a container or other virtualized
+environment**: We recommend using a random value, such as a secure
+UUID, for fingerprinting, rather than using the container's GUID,
+since that can be spoofed, or it may match multiple containers.
+When using a random fingerprint, we also recommend deactivating
+the machine on shutdown, and monitoring the machine's heartbeat
+in case of crashes.
 
 ## Running the example
 
