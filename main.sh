@@ -17,18 +17,28 @@ log_error() {
 }
 
 # Assert that the account is set.
-if [[ -z "${KEYGEN_ACCOUNT}" ]]; then
+if [[ -z "${KEYGEN_ACCOUNT}" ]]
+then
   log_error 'env var KEYGEN_ACCOUNT is not set!'
 
   exit 1
 fi
 
 # Assert a license key is set or provided.
-if [[ -z "${KEYGEN_LICENSE}" ]]; then
+if [[ -z "${KEYGEN_LICENSE}" ]]
+then
   log_warn "env var KEYGEN_LICENSE is not set!"
 
   echo -ne "\033[34mPlease enter a license key: \033[0m"
   read KEYGEN_LICENSE
+fi
+
+# Assert jq is installed.
+if ! command -v jq &> /dev/null
+then
+  log_error 'jq command is not installed!'
+
+  exit 1
 fi
 
 # Detect current OS.
