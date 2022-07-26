@@ -103,7 +103,7 @@ fi
 fingerprint=$(echo -n "$fingerprint" | shasum -a 256 | head -c 64)
 
 # Validate the license, scoped to the current machine's fingerprint.
-read -r code id <<<$(
+read -d '\n' code id <<<$(
   curl -s -X POST "https://api.keygen.sh/v1/accounts/${KEYGEN_ACCOUNT}/licenses/${KEYGEN_LICENSE}/actions/validate" \
     -H "Authorization: License ${KEYGEN_LICENSE}" \
     -H 'Content-Type: application/json' \
